@@ -9,7 +9,7 @@ module SimpleTwitter
 
     ############################################################################
     def initialize
-      @resutls_per_page = 10
+      @results_per_page = 10
     end
 
     ############################################################################
@@ -17,7 +17,7 @@ module SimpleTwitter
     def search (search_term)
       params = {
         :q   => search_term,
-        :rpp => @resutls_per_page,
+        :rpp => @results_per_page,
       }
 
       response = HTTParty.get(SEARCH_URL, :query => params)
