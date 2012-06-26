@@ -21,7 +21,8 @@ module SimpleTwitter
       }
 
       response = HTTParty.get(SEARCH_URL, :query => params)
-      JSON.parse(response.body)
+      nasty_hash = JSON.parse(response.body)
+      nasty_hash['results'].map {|r| Tweet.new(r)}
     end
   end
 end

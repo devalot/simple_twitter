@@ -17,7 +17,7 @@ class SearchTest < Test::Unit::TestCase
     searcher = SimpleTwitter::Search.new
     tweets = searcher.search("doesn't matter")
 
-    assert(tweets.is_a?(Hash))
-    assert(tweets.has_key?('results'))
+    assert(tweets.is_a?(Array))
+    assert(tweets.all? {|t| t.is_a?(SimpleTwitter::Tweet)})
   end
 end
